@@ -11,6 +11,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @EqualsAndHashCode
 @Entity
+@Table(name = "rooms")
 public class RoomEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,4 +20,6 @@ public class RoomEntity {
     @ManyToOne
     CheckInEntity checkIn;
 
+    public RoomEntity(int n, String type) {
+    }
 }

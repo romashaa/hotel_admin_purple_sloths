@@ -8,13 +8,15 @@ import javax.persistence.*;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-//@EqualsAndHashCode
+@EqualsAndHashCode
 @Entity
 public class GuestEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @Column
     private String fullName;
+    @Column
     private String telNum;
     @ManyToOne
     CheckInEntity checkIn;
