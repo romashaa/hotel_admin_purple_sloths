@@ -3,6 +3,7 @@ package com.example.hotel_admin.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 
 
 @Getter
@@ -16,10 +17,12 @@ public class RoomEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int number;
+    @Column
     private String type;
-    @ManyToOne
-    CheckInEntity checkIn;
+    @OneToMany(mappedBy = "room")
+    private List<CheckInEntity> checkIns;
 
-    public RoomEntity(int n, String type) {
+    public RoomEntity(String type) {
+        this.type = type;
     }
 }
