@@ -1,34 +1,70 @@
 package com.example.hotel_admin.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
-
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 import javax.persistence.*;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
-@Getter
+//@Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode
 @Entity
+@Table(name = "check_in")
 public class CheckInEntity {
+    public Integer getId() {
+        return id;
+    }
+
+    public Date getArrivalDate() {
+        return arrivalDate;
+    }
+
+    public Date getLeavingDate() {
+        return leavingDate;
+    }
+    //@JsonBackReference
+    public RoomEntity getRoom() {
+        return room;
+    }
+    //@JsonBackReference
+    public GuestEntity getGuest() {
+        return guest;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column(nullable = false)
+    @Column
     private Date arrivalDate;
-    @Column(nullable = false)
+    @Column
     private Date leavingDate;
+//
+//    @JsonBackReference
+//    public GuestEntity getGuest() {
+//        return guest;
+//    }
+//    @JsonBackReference
+//    public RoomEntity getRoom() {
+//        return room;
+//    }
 
-
+    //@JsonBackReference
+   // @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "room_number")
     private RoomEntity room;
 
+   // @JsonBackReference
     @ManyToOne
+  //  @JsonIgnore
     @JoinColumn(name = "guest_id")
     private GuestEntity guest;
 

@@ -2,6 +2,9 @@ package com.example.hotel_admin.controller;
 
 import com.example.hotel_admin.entity.GuestEntity;
 import com.example.hotel_admin.service.GuestService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,9 +25,9 @@ public class GuestController {
 //        model.addAttribute("guests", guestRepository.findAll());
 //        return "guests";
 //    }
-    @PostMapping("/addGuest")
-    public GuestEntity addGuest(@RequestBody GuestEntity guest){
-        return guestService.createGuest(guest);
+    @PostMapping(value = "/addGuest", consumes = {"*/*"})
+    public ResponseEntity<GuestEntity> addGuest(@RequestBody GuestEntity guest){
+        return new ResponseEntity<GuestEntity>(guestService.createGuest(guest), HttpStatus.CREATED);
     }
 
     @GetMapping("/guests")

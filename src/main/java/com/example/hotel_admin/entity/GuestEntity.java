@@ -1,5 +1,7 @@
 package com.example.hotel_admin.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
 import javax.persistence.*;
@@ -7,29 +9,35 @@ import java.util.List;
 
 @Getter
 @Setter
-//@AllArgsConstructor
+@AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode
 @Entity
+@Table(name = "guests")
 public class GuestEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer guest_id;
     @Column
-    private String fullName;
+    private String name;
+    @Column
+    private String surname;
+    @Column
+    private String secondName;
     @Column
     private String telNum;
-    @OneToMany(mappedBy = "guest")
+    //@JsonManagedReference
+    @JsonIgnore
+    @OneToMany(mappedBy = "guest",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<CheckInEntity> checkIns;
 
 
-    public GuestEntity(int i, String guest1, String s) {
-    }
 
-    public GuestEntity(String fullName, String telNum) {
-        this.fullName = fullName;
+
+    public GuestEntity(String name, String surname, String secondName, String telNum) {
+        this.name = name;
+        this.surname = surname;
+        this.secondName = secondName;
         this.telNum = telNum;
     }
-
-
 }

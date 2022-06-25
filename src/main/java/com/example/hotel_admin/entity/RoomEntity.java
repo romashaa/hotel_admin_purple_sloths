@@ -1,5 +1,7 @@
 package com.example.hotel_admin.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
 import javax.persistence.*;
@@ -16,10 +18,12 @@ import java.util.List;
 public class RoomEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int number;
+    private int room_number;
     @Column
     private String type;
-    @OneToMany(mappedBy = "room")
+    //@JsonManagedReference
+    @JsonIgnore
+    @OneToMany(mappedBy = "room", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<CheckInEntity> checkIns;
 
     public RoomEntity(String type) {

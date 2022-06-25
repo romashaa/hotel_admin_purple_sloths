@@ -2,6 +2,7 @@ package com.example.hotel_admin.controller;
 
 import com.example.hotel_admin.entity.RoomEntity;
 import com.example.hotel_admin.service.RoomService;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,7 +17,7 @@ public class RoomController {
     }
 
 
-    @PostMapping("/addRoom")
+    @PostMapping( "/addRoom")
     public RoomEntity addRoom(@RequestBody RoomEntity room){
         return roomService.createRoom(room);
     }

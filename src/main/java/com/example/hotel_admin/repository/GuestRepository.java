@@ -7,4 +7,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface GuestRepository extends JpaRepository<GuestEntity,Integer> {
+    // GuestEntity findByGuest_id(Integer id);
+
 }
