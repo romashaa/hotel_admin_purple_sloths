@@ -28,8 +28,9 @@ public class CheckInController {
     public Optional<CheckInEntity> getCheckInById (@PathVariable(value = "id") Integer checkInId){
         return checkInService.getCheckInById(checkInId);
     }
-    @DeleteMapping("/deleteCheckIn")
+    @DeleteMapping("/deleteCheckIn/{id}")
     public void deleteCheckIn(@PathVariable (value = "id") Integer checkInId){
         checkInService.deleteCheckIn(checkInId);
     }
+
 }

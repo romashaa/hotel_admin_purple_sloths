@@ -28,7 +28,7 @@ public class AdminController {
     public Optional<AdminEntity> getAdminById (@PathVariable(value = "id") Integer adminId){
         return adminService.getAdminById(adminId);
     }
-    @DeleteMapping("/deleteAdmin")
+    @DeleteMapping("/deleteAdmin/{id}")
     public void deleteAdmin(@PathVariable (value = "id") Integer adminId){
         adminService.deleteAdmin(adminId);
     }

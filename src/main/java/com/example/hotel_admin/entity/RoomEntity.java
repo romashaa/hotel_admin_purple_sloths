@@ -18,7 +18,7 @@ import java.util.List;
 public class RoomEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int room_number;
+    private Integer room_number;
     @Column
     private String type;
     //@JsonManagedReference

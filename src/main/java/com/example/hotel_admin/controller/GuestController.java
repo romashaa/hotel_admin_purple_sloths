@@ -1,9 +1,9 @@
 package com.example.hotel_admin.controller;
 
 import com.example.hotel_admin.entity.GuestEntity;
+import com.example.hotel_admin.repository.CheckInRepository;
 import com.example.hotel_admin.service.GuestService;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,9 +14,11 @@ import java.util.Optional;
 public class GuestController {
 
     private final GuestService guestService;
+    private final CheckInRepository checkInRepository;
 
-    public GuestController(GuestService guestService) {
+    public GuestController(GuestService guestService, CheckInRepository checkInRepository) {
         this.guestService = guestService;
+        this.checkInRepository = checkInRepository;
     }
 
 
@@ -39,7 +41,13 @@ public class GuestController {
     public Optional<GuestEntity> getGuestById (@PathVariable(value = "id") Integer guestId){
         return guestService.getGuestById(guestId);
     }
-    @DeleteMapping("/deleteGuest")
+    @GetMapping("/guests/room/{roomNumber}")
+    public List<GuestEntity> getGuestsFromRoom (@PathVariable(value = "roomNumber") Integer roomNumber){
+        List<GuestEntity> guests = checkInRepository.getGuestsFromRoom(roomNumber);
+        return guests;
+    }
+
+    @DeleteMapping("/deleteGuest/{id}")
     public void deleteGuest(@PathVariable (value = "id") Integer guestId){
         guestService.deleteGuest(guestId);
     }

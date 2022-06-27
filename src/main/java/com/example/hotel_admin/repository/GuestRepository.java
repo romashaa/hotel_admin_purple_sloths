@@ -8,5 +8,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface GuestRepository extends JpaRepository<GuestEntity,Integer> {
     // GuestEntity findByGuest_id(Integer id);
+    // Вивести всіх гостей які жили в заданій кімнаті
+    //public List<GuestEntity>
+
 
 }
