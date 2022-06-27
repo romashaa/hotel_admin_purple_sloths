@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="style.css">
+    <title>Place client</title>
+</head>
+<body>
+        
+    <div class="infobar"></div>
+    <div class="iconlogout" onclick="replace7()"><img src="logout.png"></div>    
+    <div class="header"></div>
+    <div class="leftside"></div>
+    <div id="slothRest"><img src="slothRest.png"></div>
+
+    <div class="sliders"><img src="skiders.png"></div>
+    <div class="key" onclick="replace1()"><img src="key.png"></div>
+    <div class="add" onclick="replace2()"><img src="add.png"></div>
+    <div class="happy" onclick="replace3()"><img src="happy.png"></div>
+    <div class="room" onclick="replace4()"><img src="room.png"></div>
+    <div class="admin" onclick="replace5()"><img src="admin.png"></div>
+    <div class="home" onclick="replace6()"><img src="home.png"></div>
+
+    <div class="textmenu" style="top: 124px;" onclick="replace1()">Заселити Клієнта</div>
+    <div class="textmenu" style="top: 175px;" onclick="replace2()">Додати Клієнта</div>
+    <div class="textmenu" style="top: 220px;" onclick="replace3()">Знайти Клієнта</div>
+    <div class="textmenu" style="top: 273px;" onclick="replace4()">Кімнати</div>
+    <div class="textmenu" style="top: 322px;" onclick="replace5()">Додати Адміністратора</div>
+
+    <div id="headerplacecl">Заселення клієнта</div>
+    <div class="textplacecl" style="width: 180px; height:40px; top:164px;">Оберіть клієнта</div>
+    <div class="textplacecl" style="width: 758px; height:39.23px; top:320px;">Дата виселення</div>
+    <div class="textplacecl" style="width: 182px; height:45px; top:376px;">День</div>
+    <div class="textplacecl" style="width: 210px; height:45px; top:376px; left: 764px;">Місяць</div>
+    <div class="textplacecl" style="width: 212px; height:45px; top:376px; left: 1037px;">Рік</div>
+    <div class="textplacecl" style="width: 280.82px; height:42.22px; top:513px;">Оберіть тип кімнати</div>
+    <div class="textplacecl" style="width: 184px; height:40px; top:630px;">Оберіть кімнату</div>
+
+    <form>
+        <input class="rectsearchclient1" type="text" list="suggestions3" placeholder="Оберіть клієнта"/>
+        <datalist id="suggestions3">
+            <option>Client1</option>
+            <option>Client2</option>
+            <option>Client3</option>
+        </optgroup>
+        </datalist>
+
+        <input type="text" class="placeclientFields" name="dayclient" style="left: 491px;">
+        <input type="text" class="placeclientFields" name="monthclient" style="left: 764px;">
+        <input type="text" class="placeclientFields" name="yearclient" style="left: 1036.5px;">
+
+        <input type="radio" class="radioclass" name="r" style="left: 533.48px;">
+        <input type="radio" class="radioclass" name="r" style="left: 826.95px;">
+        <input type="radio" class="radioclass" name="r" style="left: 1124.21px;">
+
+        <div class="typeroom" style="left: 566.37px;">Стандарт</div>
+        <div class="typeroom" style="left: 859.84px;">Єконом</div>
+        <div class="typeroom" style="left: 1157.1px;">Люкс</div>
+
+        <input class="rectsearchroom1" type="text" list="suggestions4" placeholder="Оберіть кімнату" />
+        <datalist id="suggestions4">
+            <option>Room1</option>
+            <option>Room2</option>
+            <option>Room3</option>
+        </optgroup>
+        </datalist>
+    </form>
+
+    <div id="buttonplaceclient"></div>
+    <div id="textplaceclientbutton">Заселити</div>
+    <div id="buttonimplaceclient"><img src="buttonSloth.png"></div>
+   
+    <script>
+        function replace2() {
+            location.replace("addclient.html")
+        }
+
+        function replace1() {
+            location.replace("placeclient.html")
+        }
+
+        function replace3() {
+            location.replace("findclient.html")
+        }
+
+        function replace4() {
+            location.replace("rooms.html")
+        }
+
+        function replace5() {
+            location.replace("addadmin.html")
+        }
+        function replace6() {
+            location.replace("home.html")
+        }
+
+        function replace7(){
+            location.replace("login.html")
+        }
+        </script>
+</body>
+</html>
