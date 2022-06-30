@@ -41,6 +41,10 @@ public class GuestController {
     public Optional<GuestEntity> getGuestById (@PathVariable(value = "id") Integer guestId){
         return guestService.getGuestById(guestId);
     }
+    @GetMapping("/guests/name")
+    public GuestEntity getGuestByFullName (@RequestParam(value = "n1") String n1, @RequestParam(value = "n2") String n2, @RequestParam(value = "n3") String n3){
+        return guestService.findGuestByFullName(n1,n2,n3);
+    }
     @GetMapping("/guests/room/{roomNumber}")
     public List<GuestEntity> getGuestsFromRoom (@PathVariable(value = "roomNumber") Integer roomNumber){
         List<GuestEntity> guests = checkInRepository.getGuestsFromRoom(roomNumber);

@@ -35,7 +35,7 @@ public class RoomController {
     }
     @GetMapping("/rooms/{id}")
     public Optional<RoomEntity> getRoomById (@PathVariable(value = "id") Integer roomId){
-        return roomService.getRoomById(roomId);
+        return roomService.findById(roomId);
     }
     @GetMapping("/rooms/free")
     public List<RoomEntity> getFreeRooms(){
@@ -46,17 +46,17 @@ public class RoomController {
     public List<RoomEntity> getFreeRoomsOfType(@PathVariable(value = "type") String type){
         return checkInRepository.getFreeRoomsOfType(java.sql.Date.valueOf(LocalDate.now()),type);
     }
-//    @GetMapping("/rooms/status/{roomNumber}")
-//    public String[] getRoomStatus(@PathVariable Integer roomNumber, List<RoomEntity> freeRooms){
-//        freeRooms=checkInService.findFreeRooms();
-//        String[] res ;
-//               if(checkInRepository.getRoomStatus(roomNumber,freeRooms).isEmpty()){
-//                   res = new String[]{"Зайнята", roomService.findById(roomNumber).getType()};
-//               }else{
-//                    res=new String[]{"Вільна", roomService.findById(roomNumber).getType()};
-//               }
-//        return res;
-//    }
+    @GetMapping("/rooms/status/{roomNumber}")
+    public String[] getRoomStatus(@PathVariable Integer roomNumber){
+        List <RoomEntity> freeRooms=checkInService.findFreeRooms();
+        String[] res ;
+               if(freeRooms.contains(checkInRepository.findById(roomNumber))){
+                   res = new String[]{"Вільна", roomService.findById(roomNumber).get().getType()};
+               }else{
+                    res=new String[]{"Зайнята", roomService.findById(roomNumber).get().getType()};
+               }
+        return res;
+    }
 
     @DeleteMapping("/deleteRoom/{id}")
     public void deleteRoom(@PathVariable (value = "id") Integer roomId){

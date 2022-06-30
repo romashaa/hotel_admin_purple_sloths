@@ -11,5 +11,7 @@ public interface GuestRepository extends JpaRepository<GuestEntity,Integer> {
     // Вивести всіх гостей які жили в заданій кімнаті
     //public List<GuestEntity>
 
+    //Вивести гостя за ПІБ
+    public GuestEntity findByNameAndSecondNameAndSurname(String name, String surname, String lastname);
 
 }

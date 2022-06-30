@@ -6,7 +6,6 @@ import com.example.hotel_admin.entity.RoomEntity;
 import com.example.hotel_admin.repository.RoomRepository;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -23,9 +22,9 @@ public class RoomService {
     public List<RoomEntity> getRooms(){
         return roomRepository.findAll();
     }
-    public Optional<RoomEntity> getRoomById(Integer roomId){
-        return roomRepository.findById(roomId);
-    }
+//    public Optional<RoomEntity> getRoomById(Integer roomId){
+//        return roomRepository.findById(roomId);
+//    }
     public void deleteRoom(Integer roomId){
         roomRepository.deleteById(roomId);
     }
@@ -33,7 +32,7 @@ public class RoomService {
 //        return roomRepository.getFreeRooms(LocalDate.now());
 //    }
 
-//    public RoomEntity findById(Integer id){
-//        return roomRepository.findByRoom_number(id);
-//    }
+    public Optional<RoomEntity> findById(Integer id){
+        return roomRepository.findById(id);
+    }
 }

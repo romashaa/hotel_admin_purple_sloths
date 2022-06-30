@@ -26,4 +26,6 @@ public class GuestService {
     public void deleteGuest(Integer guestId){
         guestRepository.deleteById(guestId);
     }
+    public GuestEntity findGuestByFullName(String name, String surname, String lastname){
+        return guestRepository.findByNameAndSecondNameAndSurname(name,surname,lastname);}
 }
