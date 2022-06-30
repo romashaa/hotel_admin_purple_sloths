@@ -32,7 +32,7 @@ public interface CheckInRepository extends JpaRepository<CheckInEntity,Integer> 
     public List<GuestEntity> getGuestsFromRoom(@Param("roomNumber") Integer roomNumber);
 
     //Перегляд активного статусу кімнати
-//    @Query("SELECT r.type FROM RoomEntity r WHERE r.room_number= :roomNumber AND r IN :freeRooms")
-//    public List<RoomEntity> getRoomStatus(@Param("roomNumber") Integer roomNumber, @Param("freeRooms") List<RoomEntity> freeRooms);
+    @Query("SELECT r.type FROM RoomEntity r WHERE r.room_number= :roomNumber AND r IN :freeRooms")
+    public List<RoomEntity> getRoomStatus(@Param("roomNumber") Integer roomNumber, @Param("freeRooms") List<RoomEntity> freeRooms);
 
 }

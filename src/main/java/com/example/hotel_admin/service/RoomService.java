@@ -32,4 +32,8 @@ public class RoomService {
 //    public List<RoomEntity> findFreeRooms(){
 //        return roomRepository.getFreeRooms(LocalDate.now());
 //    }
+
+//    public RoomEntity findById(Integer id){
+//        return roomRepository.findByRoom_number(id);
+//    }
 }

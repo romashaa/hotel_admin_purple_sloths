@@ -13,4 +13,5 @@ public interface RoomRepository extends JpaRepository<RoomEntity,Integer> {
 
 //    @Query(value ="SELECT ch.room FROM CheckInEntity ch WHERE ch.leavingDate < date", nativeQuery = true)
 //    public List<RoomEntity> getFreeRooms(LocalDate date);
+  //    RoomEntity findByRoom_number(Integer roomNumber);
 }
