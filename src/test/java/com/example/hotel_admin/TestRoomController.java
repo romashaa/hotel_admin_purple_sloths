@@ -1,4 +1,4 @@
-package com.example.hotel_admin.JUnit_tests;
+package com.example.hotel_admin;
 
 import com.example.hotel_admin.controller.RoomController;
 import com.example.hotel_admin.entity.RoomEntity;

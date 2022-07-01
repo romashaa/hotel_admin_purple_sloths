@@ -1,11 +1,11 @@
-package com.example.hotel_admin.JUnit_tests;
+package com.example.hotel_admin;
 
 import com.example.hotel_admin.controller.AdminController;
 import com.example.hotel_admin.entity.AdminEntity;
 import com.example.hotel_admin.repository.AdminRepository;
 import com.example.hotel_admin.service.AdminService;
 import org.junit.Assert;
-import org.junit.Test;
+import org.testng.annotations.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;

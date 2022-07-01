@@ -1,4 +1,4 @@
-package com.example.hotel_admin.JUnit_tests;
+package com.example.hotel_admin;
 
 import com.example.hotel_admin.controller.CheckInController;
 import com.example.hotel_admin.entity.CheckInEntity;
@@ -8,6 +8,7 @@ import com.example.hotel_admin.repository.CheckInRepository;
 import com.example.hotel_admin.service.CheckInService;
 import org.junit.Assert;
 import org.junit.Test;
+//import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
