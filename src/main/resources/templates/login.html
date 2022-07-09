@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset=utf-8>
+<!--    <link th:href="@{/static/css/style.css}" rel="stylesheet">-->
+<!--    <base href="/">-->
+<!--    <link src="../static/css/style.css" type="text/css" />-->
+<!--    <link href="/static/styles/cssandjs/style.css" rel="stylesheet">-->
+<!--    <link href="css/styles.css" type="text/css" rel="stylesheet"/>-->
+    <title>Login</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css?family=Caveat:400,700");
+        #b{
+            align-items: flex-start;
+            width: 1440px;
+            height: 1024px;
+            display: flex;
+            background: linear-gradient(180deg, #8534EB 0%, #F1F1F2 100%);
+
+        }
+
+        body{
+            background-color: #F2F2F2;
+        }
+
+        #buttonlogin{
+            position: absolute;
+            width: 344px;
+            height: 110px;
+            left: 530px;
+            top: 814px;
+
+            background: #8F45EE;
+            box-shadow: 0px 4px 4px 3px rgba(0, 0, 0, 0.3);
+            border-radius: 253px;
+        }
+
+        #buttontextlogin{
+            position: absolute;
+            width: 117px;
+            height: 60px;
+            left: 702px;
+            top: 839px;
+
+            font-family: 'Caveat';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 48px;
+            line-height: 60px;
+            display: flex;
+            align-items: center;
+
+            color: #FFFFFF;
+
+        }
+
+        #buttonimlogin{
+            position: absolute;
+            width: 147px;
+            height: 74px;
+            left: 546px;
+            top: 832px;
+        }
+
+        #sloth2{
+            position: absolute;
+            width: 423px;
+            height: 994px;
+            left: 0px;
+            top: 15px;
+        }
+
+        #sloth1{
+            position: absolute;
+            width: 388px;
+            height: 304px;
+            left: 508px;
+            top: 0px;
+        }
+
+        #sloth3{
+            position: absolute;
+            width: 486px;
+            height: 963px;
+            left: 954px;
+            top: 30px;
+        }
+
+        .textlog{
+            position: absolute;
+            font-family: 'Caveat';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 32px;
+            line-height: 40px;
+
+            color: #FFFFFF;
+        }
+
+        .logininp{
+            position: absolute;
+            width: 590px;
+            height: 93px;
+            background: #EFDCEB;
+            left: 423px;
+            font-family: 'Caveat';
+            font-size: 40px;
+        }
+        table{
+            position: absolute;
+            width: 881px;
+            height: 211px;
+            left: 440px;
+            top: 408px;
+        }
+    </style>
+</head>
+<body id="b">
+
+<!--    <div id="buttonlogin" name="buttonlogin" onclick="replace()"></div>-->
+<!--    <div id="buttontextlogin" name="buttontextlogin" onclick="replace()">Увійти</div>-->
+    <div ><img id="buttonimlogin" name="buttonimlogin" src="../static/css/slEye3.png" onclick="replace()"></div>
+    <div ><img id="sloth1" name="sloth1" src="../static/css/slEye2.png"></div>
+    <div ><img id="sloth2" name="sloth2" src="../static/css/slEye11.png"></div>
+    <div ><img id="sloth3" name="sloth3" src="../static/css/slEye12.png"></div>
+    <div class="textlog" name="textlog1" style="width: 66px; height: 40px; left: 425px; top: 339px;">Логін</div>
+    <div class="textlog" name="textlog2" style="width: 82px; height: 40px; left: 423px; top: 507px;">Пароль</div>
+
+    <form th:action="@{/login}" method="post" name="f">
+        <input type="text" class="logininp" name="username" style="top: 379px;">
+        <input type="password" class="logininp" name="password" style="top: 547px;">
+        <div > <input type="submit" id="buttonlogin" name="buttonlogin" value="Sign In"/></div>
+    </form>
+
+</body>
+</html>

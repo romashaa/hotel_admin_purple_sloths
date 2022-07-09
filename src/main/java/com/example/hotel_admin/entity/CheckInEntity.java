@@ -5,6 +5,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.text.DateFormat;
 import java.util.Date;
@@ -43,8 +45,10 @@ public class CheckInEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date arrivalDate;
     @Column
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date leavingDate;
 //
 //    @JsonBackReference

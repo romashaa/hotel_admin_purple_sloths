@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset=utf-8>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <title>Place client</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css?family=Caveat:400,700");
+        body{
+            background-color: #F2F2F2;
+        }
+        .infobar{
+            box-sizing: border-box;
+            position: absolute;
+            width: 62px;
+            height: 1085px;
+            left: 1450px;
+            top: 0px;
+            background: #E5D9F3;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        }
+
+        .iconlogout{
+            position: absolute;
+            width: 43px;
+            height: 43px;
+            left: 1460px;
+            top: 22px;
+        }
+
+        .header{
+            position: absolute;
+            width: 1090px;
+            height: 61px;
+            left: 365px;
+            top: 0px;
+
+            background: linear-gradient(90deg, #8839EC 0%, #E5D9F3 100%);
+        }
+
+        .leftside{
+            box-sizing: border-box;
+            position: absolute;
+            width: 365px;
+            height: 1026px;
+            left: 0px;
+            top: 0px;
+
+            background: linear-gradient(179.99deg, rgba(107, 7, 234, 0.81) 0.01%, rgba(112, 0, 255, 0) 98.87%);
+            filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+        }
+
+        #slothRest{
+            position: absolute;
+            width: 365px;
+            height: 266px;
+            left: 0px;
+            top: 758px;
+        }
+
+        .sliders{
+            position: absolute;
+            width: 24px;
+            height: 34px;
+            left: 57px;
+            top: 15px;
+        }
+
+        .key{
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            left: 23px;
+            top: 120px;
+
+            filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+        }
+
+        .add{
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            left: 23px;
+            top: 170px;
+            filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+        }
+
+        .happy{
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            left: 23px;
+            top: 220px;
+        }
+
+        .room{
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            left: 23px;
+            top: 270px;
+            filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+        }
+
+        .admin{
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            left: 23px;
+            top: 320px;
+
+            filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+        }
+
+        .home{
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            left: 23px;
+            top: 70px;
+        }
+
+        .textmenu{
+            position: absolute;
+            width: 166px;
+            height: 25px;
+            left: 70px;
+            font-family: 'Caveat';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 20px;
+            display: flex;
+            align-items: center;
+            color: #FFFFFF;
+        }
+        .textmenu:hover{
+            text-decoration: underline;
+        }
+        table{
+            position: absolute;
+            width: 881px;
+            height: 211px;
+            left: 440px;
+            top: 408px;
+        }
+        #headerplacecl{
+            position: absolute;
+            width: 785px;
+            height: 71px;
+            left: 674px;
+            top: 109px;
+
+            font-family: 'Caveat';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 64px;
+            line-height: 81px;
+
+            color: #8839EC;
+
+        }
+
+        .textplacecl{
+            position: absolute;
+            left: 493px;
+            font-family: 'Caveat';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 32px;
+            line-height: 40px;
+
+            color: #000000;
+
+        }
+
+        .rectsearchclient1{
+            box-sizing: border-box;
+
+            position: absolute;
+            width: 756px;
+            height: 91px;
+            left: 493px;
+            top: 207px;
+
+            background: rgba(233, 181, 221, 0.37);
+            border: 3px solid #000000;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        }
+
+        .placeclientFields{
+            box-sizing: border-box;
+            position: absolute;
+            width: 210px;
+            height: 51px;
+            top: 421px;
+
+            background: rgba(233, 181, 221, 0.37);
+            border: 3px solid #000000;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        }
+
+        .radioclass{
+            box-sizing: border-box;
+
+            position: absolute;
+            width: 21.5px;
+            height: 15.83px;
+            top: 578.44px;
+
+            background: #EDBBDD;
+            border: 1px solid #BD6BB5;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .rectsearchroom1{
+            box-sizing: border-box;
+            position: absolute;
+            width: 756px;
+            height: 91px;
+            left: 493px;
+            top: 678px;
+            background: rgba(233, 181, 221, 0.37);
+            border: 3px solid #000000;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        }
+
+        .typeroom{
+            position: absolute;
+            width: 145.47px;
+            height: 42.22px;
+            top: 565.78px;
+
+            font-family: 'Caveat';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 32px;
+            line-height: 40px;
+
+            color: #000000;
+
+        }
+
+        #buttonplaceclient{
+            position: absolute;
+            width: 344px;
+            height: 110px;
+            left: 688px;
+            top: 836px;
+
+            background: #8F45EE;
+            box-shadow: 0px 4px 4px 3px rgba(0, 0, 0, 0.3);
+            border-radius: 253px;
+        }
+
+        #textplaceclientbutton{
+            position: absolute;
+            width: 233px;
+            height: 41px;
+            left: 834px;
+            top: 870px;
+
+            font-family: 'Caveat';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 40px;
+            line-height: 50px;
+            display: flex;
+            align-items: center;
+
+            color: #FFFFFF;
+        }
+
+        #buttonimplaceclient{
+            position: absolute;
+            width: 85px;
+            height: 74px;
+            left: 714px;
+            top: 854px;
+        }
+    </style>
+</head>
+<body>
+        
+    <div class="infobar"></div>
+    <div class="iconlogout" onclick="replace7()"><img src="../static/css/images/logout.png"></div>
+    <div class="header"></div>
+    <div class="leftside"></div>
+    <div id="slothRest"><img src="../static/css/slothRest.png"></div>
+
+    <div class="sliders"><img src="../static/css/skiders.png"></div>
+    <div class="key" onclick="replace1()"><img src="../static/css/images/key.png"></div>
+    <div class="add" onclick="replace2()"><img src="../static/css/images/add.png"></div>
+    <div class="happy" onclick="replace3()"><img src="../static/css/images/happy.png"></div>
+    <div class="room" onclick="replace4()"><img src="../static/css/images/room.png"></div>
+    <div class="admin" onclick="replace5()"><img src="../static/css/images/admin.png"></div>
+    <div class="home" onclick="replace6()"><img src="../static/css/images/home.png"></div>
+
+    <div class="textmenu" style="top: 124px;" onclick="replace1()">Заселити Клієнта</div>
+    <div class="textmenu" style="top: 175px;" onclick="replace2()">Додати Клієнта</div>
+    <div class="textmenu" style="top: 220px;" onclick="replace3()">Знайти Клієнта</div>
+    <div class="textmenu" style="top: 273px;" onclick="replace4()">Кімнати</div>
+    <div class="textmenu" style="top: 322px;" onclick="replace5()">Додати Адміністратора</div>
+
+    <div id="headerplacecl">Заселення клієнта</div>
+    <div class="textplacecl" style="width: 180px; height:40px; top:164px;">Оберіть клієнта</div>
+    <div class="textplacecl" style="width: 758px; height:39.23px; top:320px;">Дата виселення</div>
+    <div class="textplacecl" style="width: 182px; height:45px; top:376px;">День</div>
+    <div class="textplacecl" style="width: 210px; height:45px; top:376px; left: 764px;">Місяць</div>
+    <div class="textplacecl" style="width: 212px; height:45px; top:376px; left: 1037px;">Рік</div>
+    <div class="textplacecl" style="width: 280.82px; height:42.22px; top:513px;">Оберіть тип кімнати</div>
+    <div class="textplacecl" style="width: 184px; height:40px; top:630px;">Оберіть кімнату</div>
+
+    <form modelAttribute="checkIn" th:action="@{/checkIns}" th:method="POST" th:object="${checkIn}">
+<!--        <input class="rectsearchclient1" type="text" list="suggestions3" placeholder="Оберіть клієнта"/>-->
+        <select placeholder="Оберіть клієнта" class="rectsearchclient1" th:field="*{guest}">
+            <option value="">--</option>
+            <option th:each="client : ${clients}"
+                    th:text="${client.name} + ' ' + ${client.secondName} + ' ' + ${client.surname}"
+                    th:value="${client.id}"></option>
+
+        </select>
+        <input type="date" class="placeclientFields" name="dayclient" style="left: 491px;">
+<!--        <input type="text" class="placeclientFields" name="monthclient" style="left: 764px;">-->
+<!--        <input type="text" class="placeclientFields" name="yearclient" style="left: 1036.5px;">-->
+
+        <input type="radio" class="radioclass" name="r" style="left: 533.48px;">
+        <input type="radio" class="radioclass" name="r" style="left: 826.95px;">
+        <input type="radio" class="radioclass" name="r" style="left: 1124.21px;">
+
+        <div class="typeroom" style="left: 566.37px;">Стандарт</div>
+        <div class="typeroom" style="left: 859.84px;">Єконом</div>
+        <div class="typeroom" style="left: 1157.1px;">Люкс</div>
+
+        <input class="rectsearchroom1" type="text" list="suggestions4" placeholder="Оберіть кімнату" />
+        <datalist id="suggestions4">
+            <option>Room1</option>
+            <option>Room2</option>
+            <option>Room3</option>
+        </optgroup>
+        </datalist>
+    </form>
+
+    <div id="buttonplaceclient"></div>
+    <div id="textplaceclientbutton">Заселити</div>
+    <div id="buttonimplaceclient"><img src="../static/css/images/buttonSloth.png"></div>
+   
+    <script>
+        function replace2() {
+            location.replace("addclient.html")
+        }
+
+        function replace1() {
+            location.replace("placeclient.html")
+        }
+
+        function replace3() {
+            location.replace("findclient.html")
+        }
+
+        function replace4() {
+            location.replace("rooms.html")
+        }
+
+        function replace5() {
+            location.replace("addadmin.html")
+        }
+        function replace6() {
+            location.replace("home.html")
+        }
+
+        function replace7(){
+            location.replace("login.html")
+        }
+        </script>
+</body>
+</html>

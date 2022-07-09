@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset=utf-8>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <title>Add Admin</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css?family=Caveat:400,700");
+
+        body{
+            background-color: #F2F2F2;
+        }
+
+        .infobar{
+            box-sizing: border-box;
+            position: absolute;
+            width: 62px;
+            height: 1085px;
+            left: 1450px;
+            top: 0px;
+            background: #E5D9F3;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        }
+
+        .iconlogout{
+            position: absolute;
+            width: 43px;
+            height: 43px;
+            left: 1460px;
+            top: 22px;
+        }
+
+        .header{
+            position: absolute;
+            width: 1090px;
+            height: 61px;
+            left: 365px;
+            top: 0px;
+
+            background: linear-gradient(90deg, #8839EC 0%, #E5D9F3 100%);
+        }
+
+        .leftside{
+            box-sizing: border-box;
+            position: absolute;
+            width: 365px;
+            height: 1026px;
+            left: 0px;
+            top: 0px;
+
+            background: linear-gradient(179.99deg, rgba(107, 7, 234, 0.81) 0.01%, rgba(112, 0, 255, 0) 98.87%);
+            filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+        }
+
+        #slothRest{
+            position: absolute;
+            width: 365px;
+            height: 266px;
+            left: 0px;
+            top: 758px;
+        }
+
+        .sliders{
+            position: absolute;
+            width: 24px;
+            height: 34px;
+            left: 57px;
+            top: 15px;
+        }
+
+        .key{
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            left: 23px;
+            top: 120px;
+
+            filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+        }
+
+        .add{
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            left: 23px;
+            top: 170px;
+            filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+        }
+
+        .happy{
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            left: 23px;
+            top: 220px;
+        }
+
+        .room{
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            left: 23px;
+            top: 270px;
+            filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+        }
+
+        .admin{
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            left: 23px;
+            top: 320px;
+
+            filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+        }
+
+        .home{
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            left: 23px;
+            top: 70px;
+        }
+
+        .textmenu{
+            position: absolute;
+            width: 166px;
+            height: 25px;
+            left: 70px;
+            font-family: 'Caveat';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 20px;
+            display: flex;
+            align-items: center;
+            color: #FFFFFF;
+        }
+
+        .textmenu:hover{
+            text-decoration: underline;
+        }
+
+        #titleAddadmin{
+            position: absolute;
+            width: 700px;
+            height: 68px;
+            left: 570px;
+            top: 103px;
+
+            font-family: 'Caveat';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 64px;
+            line-height: 81px;
+
+            color: #8839EC;
+        }
+
+        .textaddadmin{
+            position: absolute;
+            font-family: 'Caveat';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 32px;
+            line-height: 40px;
+            color: #000000;
+        }
+
+        .addadminFields{
+            box-sizing: border-box;
+            position: absolute;
+            width: 756px;
+            height: 80px;
+            left: 476px;
+            background: rgba(233, 181, 221, 0.37);
+            border: 3px solid #000000;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        }
+
+        #buttonaddadmin{
+            position: absolute;
+            width: 344px;
+            height: 110px;
+            left: 682px;
+            top: 818px;
+
+            background: #8F45EE;
+            box-shadow: 0px 4px 4px 3px rgba(0, 0, 0, 0.3);
+            border-radius: 253px;
+        }
+        #buttonimaddadmin{
+            position: absolute;
+            width: 85px;
+            height: 74px;
+            left: 708px;
+            top: 836px;
+        }
+
+        #buttontextaddadmin{
+            position: absolute;
+            width: 233px;
+            height: 41px;
+            left: 828px;
+            top: 852px;
+            font-family: 'Caveat';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 40px;
+            line-height: 50px;
+            display: flex;
+            align-items: center;
+            color: #FFFFFF;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="infobar"></div>
+    <div class="iconlogout" onclick="replace7()"><img src="../static/css/images/logout.png"></div>
+    <div class="header"></div>
+    <div class="leftside"></div>
+    <div id="slothRest"><img src="../static/css/slothRest.png"></div>
+
+    <div class="sliders"><img src="../static/css/skiders.png"></div>
+    <div class="key" onclick="replace1()"><img src="../static/css/images/key.png"></div>
+    <div class="add" onclick="replace2()"><img src="../static/css/images/add.png"></div>
+    <div class="happy" onclick="replace3()"><img src="../static/css/images/happy.png"></div>
+    <div class="room" onclick="replace4()"><img src="../static/css/images/room.png"></div>
+    <div class="admin"><img src="../static/css/images/admin.png"></div>
+    <div class="home" onclick="replace6()"><img src="../static/css/images/home.png"></div>
+
+    <div class="textmenu" style="top: 124px;" onclick="replace1()">Заселити Клієнта</div>
+    <div class="textmenu" style="top: 175px;" onclick="replace2()">Додати Клієнта</div>
+    <div class="textmenu" style="top: 220px;" onclick="replace3()">Знайти Клієнта</div>
+    <div class="textmenu" style="top: 273px;" onclick="replace4()">Кімнати</div>
+    <div class="textmenu" style="top: 322px;">Додати Адміністратора</div>
+
+    <div name="titleAddadmin" id="titleAddadmin">Додавання адміністратора</div>
+
+    <div class="textaddadmin" name="textaddadmin1" style="width: 150px; height: 40px; left: 478px; top: 296px;">Введіть логін</div>
+    <div class="textaddadmin" name="textaddadmin2" style="width: 300px; height: 40px; left: 476px; top: 472px;">Введіть початковий пароль</div>
+    <div class="textaddadmin" name="textaddadmin3" style="width: 212px; height: 40px; left: 476px; top: 649px;">Підтвердіть пароль</div>
+
+    <form modelAttribute="admin" th:action="@{/admins}" th:method="POST" th:object="${admin}">
+        <input type="text" class="addadminFields" name="loginAddadmin" th:field="*{login}" style="top: 338px;">
+        <input type="password" class="addadminFields" name="pass1Addadmin" th:field="*{password}" style="top: 513px;">
+<!--        <input type="password" class="addadminFields" name="pass2Addadmin" th:field="*{surname}" style="top: 691px;">-->
+        <div  name="buttonaddadmin"><input id="buttonaddadmin" type="submit" value="Додати"/></div>
+    </form>
+
+    <div id="buttontextaddadmin" name="buttontextaddadmin">Додати</div>
+    <div ><img id="buttonimaddadmin" name="buttonimaddadmin" src="../static/css/images/buttonSloth.png"></div>
+
+    <script>
+        function replace1() {
+            location.replace("placeclient.html")
+        }
+
+        function replace3() {
+            location.replace("findclient.html")
+        }
+
+        function replace4() {
+            location.replace("rooms.html")
+        }
+
+        function replace5() {
+            location.replace("addadmin.html")
+        }
+        function replace6() {
+            location.replace("home.html")
+        }
+        function replace7() {
+            location.replace("login.html")
+        }
+    </script>
+
+</body>
+</html>

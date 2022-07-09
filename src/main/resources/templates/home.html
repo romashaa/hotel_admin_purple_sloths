@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset=utf-8>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <title>Home</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css?family=Caveat:400,700");
+
+        body{
+            background-color: #F2F2F2;
+        }
+        #instructionmain{
+            position: absolute;
+            width: 954px;
+            height: 97px;
+            left: 394px;
+            top: 77px;
+
+            font-family: 'Caveat';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 38px;
+            line-height: 48px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+
+            color: #000000;
+        }
+        #sloth6{
+            position: absolute;
+            width: 729px;
+            height: 594px;
+            left: 508px;
+            top: 331px;
+            opacity: 0.9;
+        }
+        .infobar{
+            box-sizing: border-box;
+            position: absolute;
+            width: 62px;
+            height: 1085px;
+            left: 1450px;
+            top: 0px;
+            background: #E5D9F3;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        }
+        .iconlogout{
+            position: absolute;
+            width: 43px;
+            height: 43px;
+            left: 1460px;
+            top: 22px;
+        }
+        .header{
+            position: absolute;
+            width: 1090px;
+            height: 61px;
+            left: 365px;
+            top: 0px;
+
+            background: linear-gradient(90deg, #8839EC 0%, #E5D9F3 100%);
+        }
+        .leftside{
+            box-sizing: border-box;
+            position: absolute;
+            width: 365px;
+            height: 1026px;
+            left: 0px;
+            top: 0px;
+
+            background: linear-gradient(179.99deg, rgba(107, 7, 234, 0.81) 0.01%, rgba(112, 0, 255, 0) 98.87%);
+            filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+        }
+        #slothRest{
+            position: absolute;
+            width: 365px;
+            height: 266px;
+            left: 0px;
+            top: 758px;
+        }
+        .sliders{
+            position: absolute;
+            width: 24px;
+            height: 34px;
+            left: 57px;
+            top: 15px;
+        }
+        .key{
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            left: 23px;
+            top: 120px;
+            filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+        }
+        .add{
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            left: 23px;
+            top: 170px;
+            filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+        }
+        .happy{
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            left: 23px;
+            top: 220px;
+        }
+        .room{
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            left: 23px;
+            top: 270px;
+            filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+        }
+        .admin{
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            left: 23px;
+            top: 320px;
+            filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+        }
+
+        .home{
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            left: 23px;
+            top: 70px;
+        }
+
+        .textmenu{
+            position: absolute;
+            width: 166px;
+            height: 25px;
+            left: 70px;
+            font-family: 'Caveat';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 20px;
+            display: flex;
+            align-items: center;
+            color: #FFFFFF;
+        }
+
+        .circles{
+            position: absolute;
+            width: 126px;
+            height: 126px;
+            top: 202px;
+            border-radius: 50%;
+            background: #EDBBDD;
+        }
+
+        .textcircle{
+            position: absolute;
+            font-family: 'Caveat';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 22px;
+            line-height: 28px;
+            display: flex;
+            align-items: center;
+
+            color: #FFFFFF;
+        }
+
+        .instruction{
+            display: none;
+            position: absolute;
+            width: 890px;
+            height: 716px;
+            left: 430px;
+            top: 340px;
+        }
+
+        .circles:hover{
+            border: 3px solid #AD239F;
+        }
+
+        .textmenu:hover{
+            text-decoration: underline;
+        }
+
+        table{
+            position: absolute;
+            width: 881px;
+            height: 211px;
+            left: 440px;
+            top: 408px;
+        }
+    </style>
+</head>
+<body>
+        
+    <div id="instructionmain" name="instructionmain">Для перегляду інструкцій для кожної секції - натисніть на кружечки Для переходу до відповідної секції - скористайтесь боковим меню </div>
+    <div><img id="sloth6" name="sloth6" src="../static/css/sloth6.png"></div>
+    <div class="infobar"></div>
+    <div class="iconlogout" onclick="replace7()"><img src="../static/css/images/logout.png"></div>
+    <div class="header"></div>
+    <div class="leftside"></div>
+    <div id="slothRest"><img src="../static/css/slothRest.png"></div>
+
+    <div class="sliders"><img src="../static/css/skiders.png"></div>
+    <div class="key"onclick="replace1()"><img src="../static/css/images/key.png"></div>
+    <div class="add" onclick="replace2()"><img src="../static/css/images/add.png"></div>
+    <div class="happy" onclick="replace3()"><img src="../static/css/images/happy.png"></div>
+    <div class="room" onclick="replace4()"><img src="../static/css/images/room.png"></div>
+    <div class="admin" onclick="replace5()"><img src="../static/css/images/admin.png"></div>
+    <div class="home" onclick="replace6()"><img src="../static/css/images/home.png"></div>
+
+    <div class="textmenu" style="top: 124px;"><a th:href="@{placeclient}">Заселити Клієнта</a></div>
+    <div class="textmenu" style="top: 175px;"><a th:href="@{/guests/new}">Додати Клієнта</a></div>
+    <div class="textmenu" style="top: 220px;"><a th:href="@{findclient}">Знайти Клієнта</a></div>
+    <div class="textmenu" style="top: 273px;"><a th:href="@{manageRooms}">Кімнати</a></div>
+    <div class="textmenu" style="top: 322px;"><a th:href="@{/admins/new}">Додати Адміністратора</a></div>
+
+    <div onclick="myFunction1()" id="circle1" class="circles" style="left: 444px;"></div>
+    <div onclick="myFunction2()" id="circle2" class="circles" style="left: 651px;"></div>
+    <div onclick="myFunction3()" id="circle3" class="circles" style="left: 858px;"></div>
+    <div onclick="myFunction4()" id="circle4" class="circles" style="left: 1065px;"></div>
+    <div onclick="myFunction5()" id="circle5" class="circles" style="width: 130px; height: 130px;left: 1272px;"></div>
+
+    <div class="textcircle" style="width: 82px; height: 56px; left: 472px;top: 234px;">Заселити Клієнта</div>
+    <div class="textcircle" style="width: 98px; height: 20px; left: 679px;top: 252px;">Додати Клієнта</div>
+    <div class="textcircle" style="width: 83px; height: 29px; left: 891px;top: 247px;">Знайти Клієнта</div>
+    <div class="textcircle" style="width: 76px; height: 24px; left: 1090px;top: 249px;">Кімнати</div>
+    <div class="textcircle" style="width: 98px; height: 17px; left: 1275px;top: 254px;">Додати Адміністратора</div>
+
+    <div class="instruction" id="ins1"><img src="../static/css/images/image9.png"></div>
+    <div class="instruction" id="ins2"><img src="../static/css/images/image10.png"></div>
+    <div class="instruction" id="ins3"><img src="../static/css/images/image12.png"></div>
+    <div class="instruction" id="ins4"><img src="../static/css/images/image11.png"></div>
+    <div class="instruction" id="ins5"><img src="../static/css/images/image13.png"></div>
+
+    <script>
+        function myFunction1() {
+          var x = document.getElementById("ins1");
+          var x1 = document.getElementById("ins2");
+          var x2 = document.getElementById("ins3");
+          var x3 = document.getElementById("ins4");
+          var x4 = document.getElementById("ins5");
+          if (x.style.display === "none") {
+            x.style.display = "block";
+            x1.style.display = 'none';
+            x2.style.display = 'none';
+            x3.style.display = 'none';
+            x4.style.display = 'none';
+          } else {
+            x.style.display = "none";
+          }
+        }
+        function myFunction2() {
+          var x = document.getElementById("ins2");
+          var x1 = document.getElementById("ins1");
+          var x2 = document.getElementById("ins3");
+          var x3 = document.getElementById("ins4");
+          var x4 = document.getElementById("ins5");
+          if (x.style.display === "none") {
+            x.style.display = "block";
+            x1.style.display = 'none';
+            x2.style.display = 'none';
+            x3.style.display = 'none';
+            x4.style.display = 'none';
+          } else {
+            x.style.display = "none";
+          }
+        }
+        function myFunction3() {
+          var x = document.getElementById("ins3");
+          var x1 = document.getElementById("ins1");
+          var x2 = document.getElementById("ins2");
+          var x3 = document.getElementById("ins4");
+          var x4 = document.getElementById("ins5");
+          if (x.style.display === "none") {
+            x.style.display = "block";
+            x1.style.display = 'none';
+            x2.style.display = 'none';
+            x3.style.display = 'none';
+            x4.style.display = 'none';
+          } else {
+            x.style.display = "none";
+          }
+        }
+        function myFunction4() {
+          var x = document.getElementById("ins4");
+          var x1 = document.getElementById("ins1");
+          var x2 = document.getElementById("ins3");
+          var x3 = document.getElementById("ins2");
+          var x4 = document.getElementById("ins5");
+          if (x.style.display === "none") {
+            x.style.display = "block";
+            x1.style.display = 'none';
+            x2.style.display = 'none';
+            x3.style.display = 'none';
+            x4.style.display = 'none';
+          } else {
+            x.style.display = "none";
+          }
+        }
+        function myFunction5() {
+          var x = document.getElementById("ins5");
+          var x1 = document.getElementById("ins1");
+          var x2 = document.getElementById("ins3");
+          var x3 = document.getElementById("ins4");
+          var x4 = document.getElementById("ins2");
+          if (x.style.display === "none") {
+            x.style.display = "block";
+            x1.style.display = 'none';
+            x2.style.display = 'none';
+            x3.style.display = 'none';
+            x4.style.display = 'none';
+          } else {
+            x.style.display = "none";
+          }
+        }
+
+        function replace2() {
+            location.replace("addclient.html")
+        }
+
+        function replace1() {
+            location.replace("placeclient.html")
+        }
+
+        function replace3() {
+            location.replace("findclient.html")
+        }
+
+        function replace4() {
+            location.replace("rooms.html")
+        }
+
+        function replace5() {
+            location.replace("addadmin.html")
+        }
+        function replace6() {
+            location.replace("home.html")
+        }
+        function replace7() {
+            location.replace("login.html")
+        }
+        </script>
+</body>
+</html>

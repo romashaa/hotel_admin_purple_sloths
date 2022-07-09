@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset=utf-8>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <title>Find client</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css?family=Caveat:400,700");
+        body{
+            background-color: #F2F2F2;
+        }
+        .infobar{
+            box-sizing: border-box;
+            position: absolute;
+            width: 62px;
+            height: 1085px;
+            left: 1450px;
+            top: 0px;
+            background: #E5D9F3;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        }
+        .iconlogout{
+            position: absolute;
+            width: 43px;
+            height: 43px;
+            left: 1460px;
+            top: 22px;
+        }
+
+        .header{
+            position: absolute;
+            width: 1090px;
+            height: 61px;
+            left: 365px;
+            top: 0px;
+
+            background: linear-gradient(90deg, #8839EC 0%, #E5D9F3 100%);
+        }
+
+        .leftside{
+            box-sizing: border-box;
+            position: absolute;
+            width: 365px;
+            height: 1026px;
+            left: 0px;
+            top: 0px;
+
+            background: linear-gradient(179.99deg, rgba(107, 7, 234, 0.81) 0.01%, rgba(112, 0, 255, 0) 98.87%);
+            filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+        }
+
+        #slothRest{
+            position: absolute;
+            width: 365px;
+            height: 266px;
+            left: 0px;
+            top: 758px;
+        }
+
+        .sliders{
+            position: absolute;
+            width: 24px;
+            height: 34px;
+            left: 57px;
+            top: 15px;
+        }
+
+        .key{
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            left: 23px;
+            top: 120px;
+
+            filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+        }
+
+        .add{
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            left: 23px;
+            top: 170px;
+            filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+        }
+
+        .happy{
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            left: 23px;
+            top: 220px;
+        }
+
+        .room{
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            left: 23px;
+            top: 270px;
+            filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+        }
+
+        .admin{
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            left: 23px;
+            top: 320px;
+
+            filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+        }
+
+        .home{
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            left: 23px;
+            top: 70px;
+        }
+
+        .textmenu{
+            position: absolute;
+            width: 166px;
+            height: 25px;
+            left: 70px;
+            font-family: 'Caveat';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 20px;
+            display: flex;
+            align-items: center;
+            color: #FFFFFF;
+        }
+        .textmenu:hover{
+            text-decoration: underline;
+        }
+        #sloth6F{
+            position: absolute;
+            width: 729px;
+            height: 594px;
+            left: 486px;
+            top: 340px;
+            opacity: 0.9;
+        }
+
+        #textfindclient{
+            position: absolute;
+            width: 247px;
+            height: 40px;
+            left: 415px;
+            top: 142px;
+
+            font-family: 'Caveat';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 32px;
+            line-height: 40px;
+
+            color: #000000;
+
+        }
+
+        #textfindclientbutton{
+            position: absolute;
+            width: 161px;
+            height: 29px;
+            left: 1150px;
+            top: 211px;
+
+            font-family: 'Caveat';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 40px;
+            line-height: 50px;
+            display: flex;
+            align-items: center;
+
+            color: #FFFFFF;
+        }
+
+        #buttonimfindclient{
+            position: absolute;
+            width: 59px;
+            height: 52px;
+            left: 1067px;
+            top: 185px;
+        }
+
+        #buttonfindclient{
+            position: absolute;
+            width: 238px;
+            height: 76px;
+            left: 1049px;
+            top: 188px;
+
+            background: #8F45EE;
+            box-shadow: 0px 4px 4px 3px rgba(0, 0, 0, 0.3);
+            border-radius: 253px;
+        }
+
+        .rectsearchclient{
+            box-sizing: border-box;
+
+            position: absolute;
+            width: 557px;
+            height: 66px;
+            left: 407px;
+            top: 197px;
+
+            background: rgba(233, 181, 221, 0.37);
+            border: 3px solid #000000;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        }
+
+        #infoaboutclientfc, #infoaboutrooms{
+            position: absolute;
+            width: 894px;
+            height: 49px;
+            left: 423px;
+            top: 315px;
+
+            font-family: 'Caveat';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 32px;
+            line-height: 40px;
+
+            color: #000000;
+        }
+
+
+        .th{
+            border: 3px solid #000000;
+            filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+            background: #AD239F;
+            font-family: 'Caveat';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 23px;
+            line-height: 29px;
+            align-items: center;
+            text-align: center;
+            width: 200px;
+            color: #FFFFFF;
+        }
+
+        table{
+            position: absolute;
+            width: 881px;
+            height: 211px;
+            left: 440px;
+            top: 408px;
+        }
+    </style>
+</head>
+<body>
+        
+    <div><img id="sloth6F" name="sloth6F" src="../static/css/sloth6.png"></div>
+    <div class="infobar"></div>
+    <div class="iconlogout" onclick="replace7()"><img src="../static/css/images/logout.png"></div>
+    <div class="header"></div>
+    <div class="leftside"></div>
+    <div id="slothRest"><img src="../static/css/slothRest.png"></div>
+
+    <div class="sliders"><img src="../static/css/skiders.png"></div>
+    <div class="key"onclick="replace1()"><img src="../static/css/images/key.png"></div>
+    <div class="add" onclick="replace2()"><img src="../static/css/images/add.png"></div>
+    <div class="happy"><img src="../static/css/images/happy.png"></div>
+    <div class="room" onclick="replace4()"><img src="../static/css/images/room.png"></div>
+    <div class="admin" onclick="replace5()"><img src="../static/css/images/admin.png"></div>
+    <div class="home" onclick="replace6()"><img src="../static/css/images/home.png"></div>
+
+    <div class="textmenu" style="top: 124px;" onclick="replace1()">Заселити Клієнта</div>
+    <div class="textmenu" style="top: 175px;" onclick="replace2()">Додати Клієнта</div>
+    <div class="textmenu" style="top: 220px;">Знайти Клієнта</div>
+    <div class="textmenu" style="top: 273px;" onclick="replace4()">Кімнати</div>
+    <div class="textmenu" style="top: 322px;" onclick="replace5()">Додати Адміністратора</div>
+
+    <div id="textfindclient">Виберіть ПІБ клієнта</div>
+    <div id="buttonfindclient" onclick="uploadFindclient()"></div>
+    <div id="textfindclientbutton" onclick="uploadFindclient()">Знайти</div>
+    <div id="buttonimfindclient" onclick="uploadFindclient()"><img src="../static/css/images/buttonSloth.png"></div>
+    
+
+    <input class="rectsearchclient" type="text" list="suggestions2" placeholder="Оберіть клієнта" />
+    <datalist id="suggestions2">
+        <option>Client1</option>
+        <option>Client2</option>
+        <option>Client3</option>
+    </optgroup>
+    </datalist>
+
+    <div id="infoaboutclientfc" name="infoaboutclientfc" style="display:none;">Info about client</div>
+
+    <table id="tablefindclient" style="display:none;">
+        <tr>
+            <td class="th">Номер кімнати</td><td class="th">Тип кімнати</td><td class="th">Дата заселення</td><td class="th">Дата виселення</td>
+        </tr>
+    </table>
+
+
+    <script>
+
+        function uploadFindclient(){
+            var x = document.getElementById("tablefindclient");
+            var x1 = document.getElementById("sloth6F");
+            var x2 = document.getElementById("infoaboutclientfc");
+            if (x.style.display === "none" && x2.style.display === "none") {
+                x.style.display = "block";
+                x2.style.display = "block";
+                x1.style.display = 'none';
+            } 
+        }
+
+        function replace2() {
+            location.replace("addclient.html")
+        }
+
+        function replace1() {
+            location.replace("placeclient.html")
+        }
+
+        function replace4() {
+            location.replace("rooms.html")
+        }
+
+        function replace5() {
+            location.replace("addadmin.html")
+        }
+        function replace6() {
+            location.replace("home.html")
+        }
+        function replace7() {
+            location.replace("login.html")
+        }
+        </script>
+</body>
+</html>
