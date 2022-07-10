@@ -1,5 +1,6 @@
 package com.example.hotel_admin.controller;
 
+import com.example.hotel_admin.entity.CheckInEntity;
 import com.example.hotel_admin.entity.GuestEntity;
 import com.example.hotel_admin.repository.CheckInRepository;
 import com.example.hotel_admin.service.GuestService;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -63,5 +65,9 @@ public class GuestController {
     public void deleteGuest(@PathVariable (value = "id") Integer guestId){
         guestService.deleteGuest(guestId);
     }
+
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////
+
 
 }

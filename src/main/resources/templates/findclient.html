@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://thymeleaf.org">
 <head>
     <meta charset=utf-8>
     <link rel="stylesheet" href="../static/css/style.css">
@@ -214,7 +214,7 @@
             box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         }
 
-        #infoaboutclientfc, #infoaboutrooms{
+        #infoaboutclientfc{
             position: absolute;
             width: 894px;
             height: 49px;
@@ -235,6 +235,20 @@
             border: 3px solid #000000;
             filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
             background: #AD239F;
+            font-family: 'Caveat';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 23px;
+            line-height: 29px;
+            align-items: center;
+            text-align: center;
+            width: 200px;
+            color: #FFFFFF;
+        }
+        .td{
+            border: 3px solid #000000;
+            filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+            background: #BD6BB5;
             font-family: 'Caveat';
             font-style: normal;
             font-weight: 700;
@@ -284,57 +298,85 @@
     <div id="buttonimfindclient" onclick="uploadFindclient()"><img src="https://imgur.com/VMyAa1N.png"></div>
     
 
-    <input class="rectsearchclient" type="text" list="suggestions2" placeholder="Оберіть клієнта" />
-    <datalist id="suggestions2">
-        <option>Client1</option>
-        <option>Client2</option>
-        <option>Client3</option>
-    </optgroup>
-    </datalist>
-
-    <div id="infoaboutclientfc" name="infoaboutclientfc" style="display:none;">Info about client</div>
-
-    <table id="tablefindclient" style="display:none;">
+<!--    <input  class="rectsearchclient" type="text" list="suggestions2" placeholder="Оберіть клієнта" />-->
+    <form th:action="@{/info}" method="post">
+        <select placeholder="Оберіть клієнта" class="rectsearchclient"  th:name="guestName" id="infoFind">
+            <option value="">--</option>
+            <option th:each="client : ${clients}"
+                    th:text="${client.name} + ' ' + ${client.secondName} + ' ' + ${client.surname}"
+                    th:value="${client.guest_id}"></option>
+        </select>
+       <div><input id="infoaboutclientfc" type="submit" value="Info about client" ></div>
+    </form>
+    <table id="tablefindclient">
+        <thead>
         <tr>
-            <td class="th">Номер кімнати</td><td class="th">Тип кімнати</td><td class="th">Дата заселення</td><td class="th">Дата виселення</td>
+            <th class="th">Номер кімнати</th>
+<!--            <th>Тип кімнати</th>-->
+            <th class="th">Дата заселення</th>
+            <th class="th">Дата виселення</th>
         </tr>
+        </thead>
+        <tbody id="infoTable">
+        <tr th:each="checkIn: ${checkIns}">
+            <td class="td" th:text="${checkIn.room.room_number}" />
+            <td class="td" th:text="${checkIn.arrivalDate}" />
+            <td class="td" th:text="${checkIn.leavingDate}" />
+<!--            <td th:text="${info[3]}" />-->
+        </tr>
+        </tbody>
+
     </table>
 
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.25/datatables.min.js"></script>
     <script>
+        $(document).ready(function() {
+            $("#tablefindclient").DataTable({
+                'aoColumnDefs': [{
+                    'bSortable': false,
+                    'aTargets': [-1] /* 1st one, start by the right */
+                }]
+            });
+        })
+    </script>
 
-        function uploadFindclient(){
-            var x = document.getElementById("tablefindclient");
-            var x1 = document.getElementById("sloth6F");
-            var x2 = document.getElementById("infoaboutclientfc");
-            if (x.style.display === "none" && x2.style.display === "none") {
-                x.style.display = "block";
-                x2.style.display = "block";
-                x1.style.display = 'none';
-            } 
-        }
 
-        function replace2() {
-            location.replace("addclient.html")
-        }
+<!--    <script>-->
 
-        function replace1() {
-            location.replace("placeclient.html")
-        }
+<!--        function uploadFindclient(){-->
+<!--            var x = document.getElementById("tablefindclient");-->
+<!--            var x1 = document.getElementById("sloth6F");-->
+<!--            var x2 = document.getElementById("infoaboutclientfc");-->
+<!--            if (x.style.display === "none" && x2.style.display === "none") {-->
+<!--                x.style.display = "block";-->
+<!--                x2.style.display = "block";-->
+<!--                x1.style.display = 'none';-->
+<!--            } -->
+<!--        }-->
 
-        function replace4() {
-            location.replace("rooms.html")
-        }
+<!--        function replace2() {-->
+<!--            location.replace("addclient.html")-->
+<!--        }-->
 
-        function replace5() {
-            location.replace("addadmin.html")
-        }
-        function replace6() {
-            location.replace("home.html")
-        }
-        function replace7() {
-            location.replace("login.html")
-        }
-        </script>
+<!--        function replace1() {-->
+<!--            location.replace("placeclient.html")-->
+<!--        }-->
+
+<!--        function replace4() {-->
+<!--            location.replace("rooms.html")-->
+<!--        }-->
+
+<!--        function replace5() {-->
+<!--            location.replace("addadmin.html")-->
+<!--        }-->
+<!--        function replace6() {-->
+<!--            location.replace("home.html")-->
+<!--        }-->
+<!--        function replace7() {-->
+<!--            location.replace("login.html")-->
+<!--        }-->
+<!--        </script>-->
 </body>
 </html>

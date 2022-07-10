@@ -18,10 +18,11 @@ public class AdminController {
     public AdminController(AdminService adminService) {
         this.adminService = adminService;
     }
-    @PostMapping("/addAdmin")
-    public AdminEntity addAdmin(@RequestBody AdminEntity admin){
-        return adminService.createAdmin(admin);
-    }
+
+//    @PostMapping("/addAdmin")
+//    public AdminEntity addAdmin(@RequestBody AdminEntity admin){
+//        return adminService.createAdmin(admin);
+//    }
 
     @GetMapping()
     public List<AdminEntity> getAdmins (){

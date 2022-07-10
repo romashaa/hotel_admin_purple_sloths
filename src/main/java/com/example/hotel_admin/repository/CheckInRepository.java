@@ -17,7 +17,9 @@ import java.util.List;
 @Repository
 public interface CheckInRepository extends JpaRepository<CheckInEntity,Integer> {
 
-//вільні кімнати
+    public List<CheckInEntity> findByGuest(GuestEntity guest);
+
+    //вільні кімнати
     @Query(value = "Select r FROM  RoomEntity r LEFT JOIN r.checkIns ch WHERE ch.leavingDate < :date OR ch.room IS NULL")
     public List<RoomEntity> getFreeRooms(@Param("date") Date date);
 
