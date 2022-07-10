@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -45,15 +46,18 @@ public class CheckInController {
         checkInService.deleteCheckIn(checkInId);
     }
     @GetMapping("/new")
-    public String newCheckIn(Model model){
+    public String newCheckIn(Model model,@RequestParam(value = "type",required = false) String type){
         model.addAttribute("checkIn", new CheckInEntity());
         model.addAttribute("clients",guestService.getGuests());
+       // model.addAttribute("rooms",checkInService.findFreeRoomsOfType(type));
+        model.addAttribute("rooms",checkInService.findFreeRooms());
         return "placeclient";
     }
     @PostMapping()
     public String createCheckIn(@ModelAttribute("checkIn") CheckInEntity checkIn){
+        checkIn.setArrivalDate(java.sql.Date.valueOf(LocalDate.now()));
         checkInService.createCheckIn(checkIn);
-        return "placeclient";
+        return "redirect:/checkIns/new";
     }
 
 

@@ -32,7 +32,8 @@ public class CheckInService {
     public List<RoomEntity> findFreeRooms(){
         return checkInRepository.getFreeRooms(java.sql.Date.valueOf(LocalDate.now()));
     }
-//   public List<RoomEntity> findFreeRoomsOfType(){
-//       return checkInRepository.getFreeRoomsOfType(java.sql.Date.valueOf(LocalDate.now()),String type);
-//   }
+
+   public List<RoomEntity> findFreeRoomsOfType(String type){
+       return checkInRepository.getFreeRoomsOfType(java.sql.Date.valueOf(LocalDate.now()), type);
+   }
 }

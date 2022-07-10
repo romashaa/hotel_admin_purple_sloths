@@ -317,32 +317,33 @@
             <option value="">--</option>
             <option th:each="client : ${clients}"
                     th:text="${client.name} + ' ' + ${client.secondName} + ' ' + ${client.surname}"
-                    th:value="${client.id}"></option>
+                    th:value="${client.guest_id}"></option>
 
         </select>
-        <input type="date" class="placeclientFields" name="dayclient" style="left: 491px;">
+        <input type="date" th:field = "${checkIn.leavingDate}" class="placeclientFields" name="dayclient" style="left: 491px;">
 <!--        <input type="text" class="placeclientFields" name="monthclient" style="left: 764px;">-->
 <!--        <input type="text" class="placeclientFields" name="yearclient" style="left: 1036.5px;">-->
 
-        <input type="radio" class="radioclass" name="r" style="left: 533.48px;">
-        <input type="radio" class="radioclass" name="r" style="left: 826.95px;">
-        <input type="radio" class="radioclass" name="r" style="left: 1124.21px;">
+        <input type="radio" th:name="type" th:value="Стандард" class="radioclass" name="r" style="left: 533.48px;">
+        <input type="radio" th:name="type" th:value="Економ" class="radioclass" name="r" style="left: 826.95px;">
+        <input type="radio" th:name="type" th:value="Люкс" class="radioclass" name="r" style="left: 1124.21px;">
 
-        <div class="typeroom" style="left: 566.37px;">Стандарт</div>
-        <div class="typeroom" style="left: 859.84px;">Єконом</div>
+        <div class="typeroom" style="left: 566.37px;">Стандард</div>
+        <div class="typeroom" style="left: 859.84px;">Економ</div>
         <div class="typeroom" style="left: 1157.1px;">Люкс</div>
 
-        <input class="rectsearchroom1" type="text" list="suggestions4" placeholder="Оберіть кімнату" />
-        <datalist id="suggestions4">
-            <option>Room1</option>
-            <option>Room2</option>
-            <option>Room3</option>
-        </optgroup>
-        </datalist>
+<!--        <input class="rectsearchroom1" type="text" list="suggestions4" placeholder="Оберіть кімнату" />-->
+        <select class="rectsearchroom1" placeholder="Оберіть кімнату" th:field="*{room}">
+            <option value="">--</option>
+            <option th:each="room : ${rooms}"
+                    th:text="${room.room_number} + ' ' + ${room.type}"
+                    th:value="${room.room_number}"></option>
+        </select>
+        <div id="buttonplaceclient"><input type="submit" value="Заселити"></div>
     </form>
 
-    <div id="buttonplaceclient"></div>
-    <div id="textplaceclientbutton">Заселити</div>
+
+<!--    <div id="textplaceclientbutton">Заселити</div>-->
     <div id="buttonimplaceclient"><img src="https://imgur.com/VMyAa1N.png"></div>
    
     <script>
