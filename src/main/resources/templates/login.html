@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://thymeleaf.org">
 <head>
     <meta charset=utf-8>
 <!--    <link th:href="@{/static/css/style.css}" rel="stylesheet">-->
@@ -126,9 +126,9 @@
     <div class="textlog" name="textlog1" style="width: 66px; height: 40px; left: 425px; top: 339px;">Логін</div>
     <div class="textlog" name="textlog2" style="width: 82px; height: 40px; left: 423px; top: 507px;">Пароль</div>
 
-    <form th:action="@{/login}" method="post" name="f">
-        <input type="text" class="logininp" name="username" style="top: 379px;">
-        <input type="password" class="logininp" name="password" style="top: 547px;">
+    <form modelAttribute="login" th:action="@{/login}" th:method="POST" th:object="${admin}">
+        <input th:field="*{login}" th:name="login" type="text" class="logininp" name="username" style="top: 379px;">
+        <input th:field="*{password}" th:name="login"type="password" class="logininp" name="password" style="top: 547px;">
         <div > <input type="submit" id="buttonlogin" name="buttonlogin" value="Sign In"/></div>
     </form>
 

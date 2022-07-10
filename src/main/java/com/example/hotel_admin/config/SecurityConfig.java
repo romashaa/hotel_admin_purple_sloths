@@ -2,6 +2,7 @@
 //
 //import org.springframework.context.annotation.Bean;
 //import org.springframework.context.annotation.Configuration;
+//import org.springframework.context.annotation.Profile;
 //import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 //import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 //import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -13,42 +14,124 @@
 //import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 //import org.springframework.security.crypto.password.PasswordEncoder;
 //import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+//import org.springframework.security.web.access.AccessDeniedHandler;
+//import org.springframework.security.web.authentication.AuthenticationFailureHandler;
+//import org.springframework.security.web.authentication.logout.LogoutSuccessHandler;
+//
 //
 //@Configuration
+//// @ImportResource({ "classpath:webSecurityConfig.xml" })
 //@EnableWebSecurity
+//@Profile("!https")
 //public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //
 //    @Override
-//    protected void configure(HttpSecurity http) throws Exception {
+//    protected void configure(final AuthenticationManagerBuilder auth) throws Exception {
+//        // @formatter:off
+//        auth.inMemoryAuthentication()
+//            //    .withUser("user1").password(passwordEncoder().encode("user1Pass")).roles("USER")
+//             //   .and()
+//              //  .withUser("user2").password(passwordEncoder().encode("user2Pass")).roles("USER")
+//             //   .and()
+//                .withUser("admin").password(passwordEncoder().encode("adminPass")).roles("ADMIN");
+//        // @formatter:on
+//    }
+//
+//    @Override
+//    protected void configure(final HttpSecurity http) throws Exception {
+//        // @formatter:off
 //        http
+//                .csrf().disable()
 //                .authorizeRequests()
-//                .antMatchers("/").permitAll()
+//                .antMatchers("/admin/**").hasRole("ADMIN")
+//              //  .antMatchers("/anonymous*").anonymous()
+//                .antMatchers("/login*").permitAll()
 //                .anyRequest().authenticated()
 //                .and()
 //                .formLogin()
 //                .loginPage("/login")
-//                .permitAll()
+//                .loginProcessingUrl("/perform_login")
+//                .defaultSuccessUrl("/home", true)
+//                //.failureUrl("/login.html?error=true")
+//              //  .failureHandler(authenticationFailureHandler())
 //                .and()
 //                .logout()
-//                .permitAll();
+//                .logoutUrl("/perform_logout")
+//                .deleteCookies("JSESSIONID");
+//               // .logoutSuccessHandler(logoutSuccessHandler());
+//        //.and()
+//        //.exceptionHandling().accessDeniedPage("/accessDenied");
+//        //.exceptionHandling().accessDeniedHandler(accessDeniedHandler());
+//        // @formatter:on
 //    }
+////
+////    @Bean
+////    public LogoutSuccessHandler logoutSuccessHandler() {
+////        return new CustomLogoutSuccessHandler();
+////    }
+////
+////    @Bean
+////    public AccessDeniedHandler accessDeniedHandler() {
+////        return new CustomAccessDeniedHandler();
+////    }
+////
+////    @Bean
+////    public AuthenticationFailureHandler authenticationFailureHandler() {
+////        return new CustomAuthenticationFailureHandler();
+////    }
 //
 //    @Bean
-//    @Override
-//    public UserDetailsService userDetailsService() {
-//        UserDetails user =
-//                User.withDefaultPasswordEncoder()
-//                        .username("user")
-//                        .password("password")
-//                        .roles("USER")
-//                        .build();
-//
-//        return new InMemoryUserDetailsManager(user);
-//    }
-//    @Bean
-//    protected PasswordEncoder passwordEncoder() {
-//        return NoOpPasswordEncoder.getInstance();
+//    public PasswordEncoder passwordEncoder() {
+//        return new BCryptPasswordEncoder();
 //    }
 //}
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+////@Configuration
+////@EnableWebSecurity
+////public class SecurityConfig extends WebSecurityConfigurerAdapter {
+////
+////    @Override
+////    protected void configure(HttpSecurity http) throws Exception {
+////        http
+////                .authorizeRequests()
+////                .antMatchers("/").permitAll()
+////                .anyRequest().authenticated()
+////                .and()
+////                .formLogin()
+////                .loginPage("/login")
+////                .defaultSuccessUrl("/home")
+////                .permitAll()
+////                .and()
+////                .logout()
+////                .permitAll();
+////    }
+////
+////    @Bean
+////    @Override
+////    public UserDetailsService userDetailsService() {
+////        UserDetails user =
+////                User.withDefaultPasswordEncoder()
+////                        .username("user")
+////                        .password("password")
+////                        .roles("ADMIN")
+////                        .build();
+////
+////        return new InMemoryUserDetailsManager(user);
+////    }
+////    @Bean
+////    protected PasswordEncoder passwordEncoder() {
+////        return NoOpPasswordEncoder.getInstance();
+////    }
+////}
 //
 //
