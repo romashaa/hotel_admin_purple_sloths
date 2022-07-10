@@ -1,22 +1,21 @@
 package com.example.hotel_admin.controller;
 
 import com.example.hotel_admin.entity.AdminEntity;
-import com.example.hotel_admin.entity.CheckInEntity;
-import com.example.hotel_admin.entity.GuestEntity;
+import com.example.hotel_admin.service.AdminService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
+import java.util.List;
 
 @Controller
 @RequestMapping("/login")
 public class RegistrationController {
-    private final HashMap<String,String> admins = new HashMap<String,String>();
-    private void initMap()
-    {
-        admins.putIfAbsent("BasicLogin","basicpassword");
-        admins.putIfAbsent("Admin","password");
+    private final AdminService adminService;
+
+    public RegistrationController(AdminService adminService) {
+        this.adminService = adminService;
     }
     @GetMapping()
     public String login(Model model){
@@ -26,9 +25,10 @@ public class RegistrationController {
     @PostMapping()
     public String login(@ModelAttribute("admin") AdminEntity admin,@RequestParam(value = "login",required = false) String login,@RequestParam(value = "password",required = false) String password){
         System.out.println(login + " " + password);
-        initMap();
-        if(admins.containsKey(login)) {
-            if (admins.get(login).equals(password)) {
+        List<AdminEntity> allAdmins = adminService.getAdmins();
+
+        for(AdminEntity current:allAdmins) {
+            if (current.getLogin().equals(login) && current.getPassword().equals(password)) {
                 return "redirect:/home";
             }
         }
