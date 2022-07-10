@@ -7,9 +7,17 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
+
 @Controller
 @RequestMapping("/login")
 public class RegistrationController {
+    private final HashMap<String,String> admins = new HashMap<String,String>();
+    private void initMap()
+    {
+        admins.putIfAbsent("BasicLogin","basicpassword");
+        admins.putIfAbsent("Admin","password");
+    }
     @GetMapping()
     public String login(Model model){
         model.addAttribute("admin", new AdminEntity());
@@ -18,9 +26,13 @@ public class RegistrationController {
     @PostMapping()
     public String login(@ModelAttribute("admin") AdminEntity admin,@RequestParam(value = "login",required = false) String login,@RequestParam(value = "password",required = false) String password){
         System.out.println(login + " " + password);
-        //if true return "redirect:/home"
-        //else return "redirect:/login"
-        return "redirect:/home";
+        initMap();
+        if(admins.containsKey(login)) {
+            if (admins.get(login).equals(password)) {
+                return "redirect:/home";
+            }
+        }
+        return "redirect:/login";
 
     }
     @RequestMapping("/")
