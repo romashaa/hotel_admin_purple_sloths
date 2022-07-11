@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://thymeleaf.org">
 <head>
     <meta charset=utf-8>
     <link rel="stylesheet" href="../static/css/style.css">
@@ -225,7 +225,7 @@
             position: absolute;
             width: 881px;
             height: 211px;
-            left: 440px;
+            left: 390px;
             top: 408px;
         }
 
@@ -244,11 +244,25 @@
 
             color: #000000;
         }
+        .td{
+            border: 3px solid #000000;
+            filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+            background: #BD6BB5;
+            font-family: 'Caveat';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 23px;
+            line-height: 29px;
+            align-items: center;
+            text-align: center;
+            width: 200px;
+            color: #FFFFFF;
+        }
     </style>
 </head>
 <body>
         
-    <div><img id="sloth6F" name="sloth6F" src="https://imgur.com/YpCjG9X.png"></div>
+<!--    <div><img id="sloth6F" name="sloth6F" src="https://imgur.com/YpCjG9X.png"></div>-->
     <div class="infobar"></div>
     <div class="iconlogout" onclick="replace7()"><img src="https://imgur.com/mdyjgaY.png"></div>
     <div class="header"></div>
@@ -275,26 +289,47 @@
     <div id="buttonimfindclient" onclick="uploadFindroom()"><img src="https://imgur.com/VMyAa1N.png"></div>
     
 
-    <input class="rectsearchclient" type="text" list="suggestions" placeholder="Оберіть кімнату" />
-    <datalist id="suggestions">
-        <option>Room1</option>
-        <option>Room2</option>
-        <option>Room3</option>
-    </optgroup>
-    </datalist>
+<!--    <input class="rectsearchclient"  placeholder="Оберіть кімнату" />-->
+    <form th:action="@{/roomsInfo}" method="post">
+        <select class="rectsearchclient" placeholder="Оберіть кімнату" th:name="roomNumber" id="infoFind">
+            <option value="">--</option>
+            <option th:each="room : ${rooms}"
+                    th:text="${room.room_number}"
+                    th:value="${room.room_number}"></option>
+        </select>
+        <div name="infoaboutrooms"><input id="infoaboutrooms" type="submit" value="Info about room"></div>
+    </form>
 
-    <div id="infoaboutrooms" name="infoaboutrooms" style="display:none;">Info about room</div>
-
-    <table id="tablefindroom" style="display:none; left: 580px;">
+    <table id="tablefindroom" style="left: 420px;">
+        <thead>
         <tr>
-            <td class="th">ПІБ клієнта</td><td class="th">Дата заселення</td><td class="th">Дата виселення</td>
+            <th class="th">ПІБ клієнта</th>
+            <th class="th">Дата заселення</th>
+            <th class="th">Дата виселення</th>
         </tr>
+        </thead>
+        <tbody id="infoTable">
+        <tr th:each="checkIn: ${checkIns}">
+            <td class="td" th:text="${checkIn.guest.name} + ' ' + ${checkIn.guest.secondName} + ' ' + ${checkIn.guest.surname}" />
+            <td class="td" th:text="${checkIn.arrivalDate}" />
+            <td class="td" th:text="${checkIn.leavingDate}" />
+            <!--            <td th:text="${info[3]}" />-->
+        </tr>
+        </tbody>
+
     </table>
 
 
     <script>
+        $(document).ready(function() {
+            $("#tablefindroom").DataTable({
+                'aoColumnDefs': [{
+                    'bSortable': false,
+                    'aTargets': [-1] /* 1st one, start by the right */
+                }]
+            });
+        })
 
-
-        </script>
+    </script>
 </body>
 </html>

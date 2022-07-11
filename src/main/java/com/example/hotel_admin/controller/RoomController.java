@@ -1,16 +1,22 @@
 package com.example.hotel_admin.controller;
 
+import com.example.hotel_admin.entity.CheckInEntity;
+import com.example.hotel_admin.entity.GuestEntity;
 import com.example.hotel_admin.entity.RoomEntity;
 import com.example.hotel_admin.repository.CheckInRepository;
 import com.example.hotel_admin.service.CheckInService;
 import com.example.hotel_admin.service.RoomService;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-@RestController
+@Controller
+@RequestMapping("/roomsInfo")
 public class RoomController {
     private final RoomService roomService;
     private final CheckInService checkInService;
@@ -63,4 +69,19 @@ public class RoomController {
         roomService.deleteRoom(roomId);
     }
 
+    ////////////////////////////////////////////////////////////////////
+
+    @GetMapping()
+    public String info(Model model){
+        model.addAttribute("rooms",roomService.getRooms());
+        List<CheckInEntity> checkIns = new ArrayList<>();
+        model.addAttribute("checkIns", checkIns);
+        return "rooms";
+
+    }
+    @PostMapping()
+    public String showInfo(Model model, @RequestParam(value = "roomNumber",required = false) RoomEntity room){
+        model.addAttribute("checkIns",checkInRepository.findByRoom(room));
+        return "rooms";
+    }
 }
